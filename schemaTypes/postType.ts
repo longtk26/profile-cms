@@ -11,6 +11,11 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
