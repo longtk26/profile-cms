@@ -17,8 +17,40 @@ export const postType = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Thumbnail / Cover Image',
       type: 'image',
+      description: 'Primary thumbnail for post cards, lists, and social previews',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'images',
+      title: 'Post Images / Gallery',
+      type: 'array',
+      description: 'Upload multiple images or diagrams contained within and associated with this post',
+      of: [
+        defineArrayMember({
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alternative Text',
+              type: 'string',
+              description: 'Important for SEO and screen readers',
+            }),
+            defineField({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              description: 'Optional caption displayed below the image',
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
       name: 'tags',
